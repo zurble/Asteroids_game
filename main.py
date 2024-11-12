@@ -46,6 +46,12 @@ def main():
             if player.is_colliding(entity):
                 sys.exit("Game over!")
 
+        for asteroid in asteroids:
+            for bullet in shot:
+                if bullet.is_colliding(asteroid):
+                    asteroid.kill()
+                    bullet.kill()
+
         for entity in drawable:
             entity.draw(screen)
 
